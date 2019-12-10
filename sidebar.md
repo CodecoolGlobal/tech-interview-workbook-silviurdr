@@ -9,3 +9,4 @@
         * [Enterprise with Java](docs/module_advanced_enterprise_java.md)
         * [Enterprise with C#](docs/module_advanced_enterprise_csharp.md)
         * [Test automation](docs/module_advanced_test_automation.md)
+        * [Data module](docs/module_advanced_data.md)

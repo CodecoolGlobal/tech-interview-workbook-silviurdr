@@ -21,9 +21,35 @@ Dictionaries are very useful when we want to create a library of items, each com
 ### Algorithms
 
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
+
+	def fibonacci(n):
+		fib_list = [0, 1]
+		i = 2
+		while i <= n:
+			fib_list.append(fib_list[i - 1] + fib_list[i - 2])
+			i += 1
+		return fib_list
+
+
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
+
+	def find_max(nums_list):
+		max_num = nums_list[0]
+		for num in nums_list:
+			if num > max_num:
+				max_num = num
+		return max_num
+
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
 
+	def find_avg(nums_list):
+		nums_sum = 0
+		for num in nums_list:
+			nums_sum += num
+		return nums_sum / len(nums_list)
+
+	
+	
 #### What do we call an *in-place* sort?
 
 * An in-place sort method mutates the list on which the `sort()` method was used, without returning a new modified list (like `sorted()` is doing).

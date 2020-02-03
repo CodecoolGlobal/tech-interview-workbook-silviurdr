@@ -56,6 +56,20 @@ Dictionaries are very useful when we want to create a library of items, each com
 
 #### Explain an algorithm which sorts a list!
 
+	def bubble_sort(list)
+		# we assign the length of the list to variable n
+		n = len(list)
+		
+		# we iterate over all the elements from the list
+		for i in range(n):
+			for j in range(n – i – 1):
+				# if the current element is bigger than the next
+				if list[j] > list[j + 1]:
+					# we swap them
+					list [j], list[j + 1] = list[j + 1], list[j]
+		
+		return list
+
 ### Programming paradigms - procedural
 
 #### What is the call stack?
@@ -199,11 +213,13 @@ The value **None** is assigned to the variable.
 
 #### What does step over, step into and step out mean while using the debugger?
 
-?????
+* _step into_: A function is about to be invoked and you want to debug into the code of that function, so the next step is to go into that function and continue debugging step-by-step.
+* _step over_: A function is about to be invoked, but you’re not interested in debugging this particular invocation, so you want the debugger to execute that function completely as one entire step.
+* _step out_: You’re done debugging this function step-by-step and you just want the debugger to run the entire function until it returns as one entire step.
 
 #### How can you start to debug a program from a certain line using the debugger?
 
-?????
+* _line breakpoint_: If the execution reaches a particular line of code, you want the debugger to temporarily pause execution there so you can decide what to do.
 
 ### Version control
 

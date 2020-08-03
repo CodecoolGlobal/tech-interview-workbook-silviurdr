@@ -6,6 +6,33 @@
 
 #### What does 'fail fast' mean in terms of exception handling? Why is it a good practice?
 
+The fail fast principle stands for stopping the current operation as soon as any unexpected operation occurs.
+Adhering to this principle generally results in a more stable solution.
+
+##### Why Fail-Fast?
+
+Fail-fast makes bugs and failures appear sooner, thus:
+
++ Bugs are earlier to detect, easier to reproduce and faster to fix.
+
++ It's faster to stabilize softwares.
+
++ Fewer bugs and defects will go into prodduction, thus leading to higher-quality ad more production-ready software.
+
++ The cost of failures and bugs are reduced.
+ 
+##### Application of Fail-Fast
+
+Fail-fast is the principle behind many Agile practices:
+
++ Test-driven development: Writing tests to cover all the cases in which it would fail and all the requirements
+it has to meet, before even implementing it.
+
++ Continuous integration: An agile practice in software development, where developers are required to
+integrate their current works into shared repository/branch several times a day. Each integration is
+verified by automated builds, thus helping team to find and fix problems early.
+
+
 ## Computer Science
 
 ### Data structures
@@ -17,16 +44,46 @@
 #### How does HashMap work?
 #### Why is it important for keys in a map to have an immutable type? (Consider String for example.)
 
+String, Integer and other wrapper classes are natural candidates for HashMap key. String is most frequently used key
+because String is immutable, final and overrides equals() and hashCode() methods. Other wrapper classes also
+share similar properties. 
+
+Immutability is required in order to prevent changes on fields used to calculate hashCode because
+if the key object returns different hashCode during insertion and retrieval, then it won't be possible to get the object from the HashMap.
+Immutability is required as it offers other advantages, like thread-safety; if you can keep your hashCode the same
+by only making certains fields final, then you go for that as well. Since equals() and hashCode() method are used during
+retrieval of value object from HashMap, it's important that the key object correctly overrides these methods.
+
 ### Other
 
 #### What is a garbage collector, in a nutshell?
+
+**Garbage Collection** in Java is a process by which the programs perform memory management automatically.
+The Garbage Collector(GC) finds the unused objects and deletes them to reclaim the memory. In Java, dynamic memory
+allocation of objects is achieved using the new operator that uses some memory and the memory remains allocated until there
+are references for the use of the object.
+
+When there are no references to an object, it is assumed to be no longer needed, and the memory occupied by the
+object can be reclaimed. There is no explicit need to destroy an object as Java handles the de-allocation automatically.
 
 ## Programming paradigms
 
 ### Procedural
 
 #### What is casting? What is the difference between up vs downcasting?
+
+Casting is taking and Object of one particular type and "turning it into" another Object type.
+Up-casting is casting to a supertype, while downcasting is casting to a subtype. Upcasting and downcasting gives us
+advantages, like Polymorphipsm or grouping by different objects. We can treat an object of a child class type to be as an object
+of its parent class type. This is called upcasting. Now, anytime an object of parent class type is type cast into a child
+class type, it is called downcast.
+
+
 #### Which order should we catch the exceptions? Why?
+
+When catching exceptions, you want to always catch the most specific first and then the most generic. If the first
+catch matches the exception, it executes, if it doesn't, the next one is tried ad so on until one is matched or none are.
+
 
 ### Object-oriented
 

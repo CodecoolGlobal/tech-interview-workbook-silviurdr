@@ -88,43 +88,152 @@ catch matches the exception, it executes, if it doesn't, the next one is tried a
 ### Object-oriented
 
 #### What is a class?
+
+A class is a blueprint to create an object.
+
 #### What is an object?
+
+An object is an instance of a class, each object has its own set of properties.
+
 #### What is a constructor?
+
+Constructors are special methods in Java/C# that have the same name as the class. Everytime we create an object, a default constructor is created.
+
 #### Do we require parameter for constructors?
+
+We can create constructors with or without parameters. The default constructor doesn't have any parameters, so no, it's not required to use parameters for constructors.
+
 #### What is an interface?
+
+An interface is just a class, the difference is that it has only method signatures, so no code written in the method body. Using interface-based design concepts provides loose coupling, component-based programming, easier maintainability, makes your code more scalable and makes code reuse much more accessible because the implementations is separated from the interface.
+
+
 #### What are access modifiers?
+
+Access modifiers are keywords used to specify the declared accessibility of a member or a type. There are 4 access modifiers in Java: public, private, protected and default.
+
+
 #### What is data hiding?
+
+Data hiding is a software development technique specifically used in OPP to hide internal object details (data members). Data hiding ensures exclusive data access to class members and protects object integrity by preventing unintended or intended changes.
+Data hiding also reduces system complexity for increased robustness by limiting the interdependencies between software components. Data hiding is also known as data encapsulation or information hiding.
+
 #### Can a static method use non-static members?
+
+Yes, non-static members are allowed in a static method.
+
+
 #### What is the difference between hiding a static method and overriding an instance method?
+
+Hiding a static method or any method uses the OOPs principle of Encapsulation compared to overriding, an instance method that uses OOPs prince of Polymorphism.
+
 #### Define the following terms: Instantiation, Attribute, Method
+
+Instantiation: the process of creating a new object; Attribute: it's another word for field, member. An object can have multiple attributes of different types, such as int, float, boolean, String and so on. ; Method: is a block of code which onl runs when it is called. Methods are used to perform certain actions and they are also known as functions.
+
 #### Could we access a static variable (or method) from a non-static method? Why?
+
+Yes, a non-static method can acess a static variable or call a static method in Java. There is no problem with that because of static members i.e. both static variable and static methods belong to a class and can be called from anywhere, depending upon their access modifiers. 
+
 #### Could we access a non-static variable (or method) from a static method? Why?
+
+No, because that non-static variable belongs to an instance. We need to create an object to use those fields and methods.
+
 #### How many instances you have of a static variable of a given class?
+
+Only one.
+
 #### Why is it not a good practice to write a lot of static methods?
+
+Static methods cause tight coupling, which is a violation of good Object Oriented Design.  
+
 #### What are the features of static attributes and static methods of a class? What are the benefits, when to use them?
 #### What is the ‘this’ reference?
+
+Using 'this' keyword you reference the object of the current class.
+
 #### What are base class, subclass and superclass?
+
+When we use inheritance, a subclass extends superclass. This means the subclass has all properties of a superclass, such as methods, fields, inner classes or block of codes. A base class is a class that will be extended and is only used as a base for all clases to receive its properties.
+
 #### Draw an object oriented family (as entities, with relations) on the whiteboard.
+
 #### Difference between overloading and overriding?
+
+Method overloading is the example of compile time polymorphism, while method overriding is the example of run time polymorphism.
+In the case of method overloading, parameter must be different. In case of method overriding, parameter must be the same.
+
+
 #### What are the Object Oriented Principles? Explain the concepts with realistic examples!
+
+Inheritance - Polymorphism - Encapsulation - Abstraction
+
 #### What is method overloading?
+
+Overloading: is a feature that allows a class to have more than one method having the same name, if their arguments lists are different. Three ways to achieve overloading - number of parameters, data type of parameters and sequence of Data type parameters.
+
 #### What is method overriding?
+
+If a subclass provides a different implementation for the method that has been declared by one of its parent class, it is known as method overriding.
+
+
 #### Explain how object oriented languages attempt to simplify memory management for Programmers.
+
 #### Explain the “Single Responsibility” principle!
+
+The single-responsibility principle (SRP) is a computer-programming principle that states that every module or class should have reponsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class, module or function.
+
 #### What is an object oriented program? Explain, show.
+
+In an object oriented program, the programmers define the data type of a data structure and also the types of operations(functions) that can be applied to the data structure. In this way, the data structure becomes an object that includes both data and functions. In addition, programmers can create relationships between one object and another. For example, objects can inherit characteristics of other objects.
+
+
 #### How do you make a class immutable? What do you need to watch out for?
+
+You can make a class immutable in few ways:
+
+1. Declare class final
+2. Declare class members final
+3. Create getter methods and no set methods.
+
+
 #### How many instances can be created for an abstract class?
+
+You can't create an instance from an abstract class because it's incomplete, has methods without body.
+
 
 ## Programming languages
 
 ### Java
 
 #### What is autoboxing and unboxing?
+
+Autoboxing is the automatic conversion that the Java compiler makes between the primitive types and their corresponding object wrapper classes. Unboxing means converting an object of a wrapper type to its corresponding primitive value.
+
+
 #### If you have a variable, that shall store a positive whole number between 0 and 200, what primitive type would you use to store it?
+
+Use an unsigned integer.
+
+
 #### What is the "golden rule" of variable scoping in Java? What is the lifetime of variables?
+
+A variable is available only in the scope it was defined (curly brackets). The lifetime of an Instance variable is until the object stays in memory. The lifetime of a Class variable is until the end of the program or as long as the class is loaded in memory. The lifetime of a local variable is until the control leaves the block in which it's declared.
+
+
 #### What is the purpose of the ‘equals()’ method?
+
+.equals() evaluates to the comparison of values in the objects
+
 #### What is the difference between '==' and 'equals()'?
+
+== checks if both objects point to the same memory location whereas .equals() evalutes to the comparison of values in the objects.
+
 #### What does the ‘static’ keyword mean?
+
+The keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type. This means that only one instance of that static member is created which is shared across all instances of the class.
+
+
 #### Why is the main() method declared as static? Explain.
 #### What is the default access modifier in a class?
 #### What is the JVM?

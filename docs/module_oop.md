@@ -229,46 +229,207 @@ A variable is available only in the scope it was defined (curly brackets). The l
 
 == checks if both objects point to the same memory location whereas .equals() evalutes to the comparison of values in the objects.
 
+
 #### What does the ‘static’ keyword mean?
 
 The keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type. This means that only one instance of that static member is created which is shared across all instances of the class.
 
 
 #### Why is the main() method declared as static? Explain.
+
+Java main() method is always static, so that the compiler can call it without the creation of an object or before the creation of an object of the class.
+
+
 #### What is the default access modifier in a class?
+
+Default - No keyword required: When no access modifier is specified for a class, method or data member, it is said to be having the default access modified by default.
+Default access modifier called 'Package private' since classed having efault access modifier are accessible only with the same package.
+
+
 #### What is the JVM?
+
+Java Virtual Machine: It is an abstract virtual computer which runs by specification. One of its main features is that enables a computer to run Java programs as well as
+programs writtern in other language that are converted by the compiler to byte-code. It is a software layer that secures wll protected environment to run the program and provides
+good mobility("Write once, Run anywhere"). Any Java application can be run only inside some concrete implementation of the abstract specification of the Java Virtual Machine.
+
+
 #### What is the difference between the JRE and the JDK?
+
+JRE (Java Runtime Environment): It is a software layer that runs on top of a computer's operating system software and provides the class libraries and other resources(JVM) that a
+specific Java program needs to run. JDK(Java Developer Kit): It provides tool for developers to create Java programs that can be executed and run by the JVM and JRE.
+
+
 #### What is the difference between long and Long?
+
+long is a primitive type, while Long is a wrapper class around the primitive long.
+
+
 #### Can a long store bigger numbers than a Long?
+
+No, because long has the same maximum value like Long, 2^63 - 1. If you want to store a bigger number, you should use BigInteger.
+
+
 #### What kind of packages do you know under java.util.* ? Bring at least 3 examples.
+
+* java.util.ArrayList
+* java.util.Collections
+* java.util.List
+
+
 #### What are the access modifiers in Java? Which one could we use for class?
+
+Access modifiers in Java: public, private, protected and default. For classes we can use public and default.
+
+
 #### Can an “enum” contain methods in Java? Explain.
+
+Enums can contain constructors, methods and fields. 
+
+
 #### When would you use a private/protected/public attribute? What is the difference?
+
+Private is used when you want to limit access only inside the class, protected inside the class, the package, but can be accessed if that class
+is inherited. Using public you can access the class from anywhere.
+
+
 #### How do you prevent developers from subclassing a class?
+
+Declare the class with final keyword so it can't be extended(inherited).
+
+
 #### How do you prevent developers from overriding a method in a subclass?
+
+You use the final keyword in a method declaration to indicate that the method cannot be overrided by subclasses.
+
 #### How do you prevent developers from changing the value of a variable?
+
+Once a **final variable has been assigned, it always contains the same value. If a final variable holds a reference to an object, the the state of the object
+may be changed by operations on the object, but the variable will always refer to the same object (this property of **final is called non-transitivity).
+
 #### Think about money ;) How would you store a currency value, that shall support decimal parts? Think it through again, and try to think outside of the box!
+
+Use Currency class.
+
+
 #### What happens if you try to call something, that you have no access to, because of data hiding?
+
+You get an error that Java compiler can't find that member.
+
+
 #### What happens if you try to delete/drop an item from an array, while you are iterating over it?
+
+The length of an array is fixed on creation, therefore it is not possible to remove any elements while iterating, or just picked by value or index.
+However there is a method removeElement() in class ArrayUtils. This creates a new array without the element we want to remove. This works via iterating.
+
 #### What happens if you try to delete/drop/add an item from a List, while you are iterating over it?
+
+If you want to delete the item you are currently at while iterating, it will cause a ConcurrentModificationException, unless you are using an iterator and say
+iterator.remove(). Esentially, the ConcurrentModificationException is used to fail-fast when something we are iterating on is modified.
+
+
 #### What happens if you try to add an item to the end of an array, while you are iterating over it?
+
+It's not possible, because arrays have a fixed size after they are created. If you want to add an element to the end of an array, you have to create a new array
+with length n + 1 (if the originl list's length was n), copy the original list elements to the new one and add your element to the end of the new list.
+
+
 #### If you need to access the iterator variable after a for loop, how would you do it?
+
+We define the iterator variable before the loop, so after the loop ends, we can still retrieve the value from the iterator.
+
 #### Which interfaces extend the Collection interface in Java. Which classes?
+
+Set, List, Queue 
+
 #### What is the connection between equals() and hashCode()? How are they used in HashMap?
+
+**equals(Object obj): a method provided by java.lang.Object that indicates whether some other object passed as an argument is "equal to" the current instance.
+The default implementation provided by the JDK is based on memory location - two objects are equal if and only if they are stored in the same memory address. If two
+objects are equal, they MUST have the same hash code.
+
+**hascode(): a method provided by java.lang.Object that returns an integer representation of the object memory address.
+
+
 #### What is the difference between checked exceptions and unchecked exceptions? Could you bring example for each?
+
+There are two exception types, checked and unchecked (also called runtime). The main difference is that checked 
+exceptions are checked when compiled, while unchecked exceptions are checked at runtime. Checked exception (ClassNotFoundException), unchecked exception(Arithmetic Exception).
+
+
 #### What is Error in Java and how does it relate to Exception?
+
+Both error and exception are subclasses of throwable class. Exceptions are related to the application itself while the errors are related to the environment (JVM) in which
+ the application is running. Errors cannot and should not be handled or caught. They signal severe problems during runtime that should stop execution. Two most common examples
+ are stack overflow and out-of-memory errors.
+
+
 #### When does 'finally' block run? What it is used for? Could you give an example from your projects when you would use 'finally'?
+
+The code we defined in the finally block runs whether there was a caught exception or not. We usually use finally block to clean up the resources - e.g. we are reading from a file
+ in the try block and we want to close the file no matter what.
+
+
 #### What is the largest number you can work with in Java?
+
+Built-in Java primitive type, Double MAX_VALUE `public static final double MAX_VALUE` . A constant holding the largest positive value of type double.
+
+
 #### When you use method overriding, can you change the access level of the method, from protected to public? Why?When you use method overriding, can you change the access level of the method, from public to protected? Why?
+
+A sub-class can always wided the access modifier, because it is still a valid substitution for the super-class. The access modifier of an overriding or hiding method must provide at least as much access as the overriden
+ pr hidden method.
+
+
 #### Can the main method be overridden? Explain your answer!
+
+No, because the main method is a static method. A static method cannot be overridded since they are not dispatched on the object instance at runtime.
+
+
 #### When you use method overriding, can you throw fewer exceptions in the subclass than in the parent class? Why?
+
+The overriding method must NOT throw checked exceptions that are new or broader than those declared by the overriden method. For example, 
+a method that declares a FileNotFoundException cannot be overidded by a method that declares a SQLException, or any other non-runtime exception, unless it's a sublcass of 
+FileNotFoundException.
+
+It means that if a method declares to throw a given exception, the overriding method in a subclass can only declare to throw that exception or its subclass.
+
 #### When you use method overriding, can you throw more exceptions in the subclass than in the parent class? Why?
+
+The overriding method must NOT throw checked exceptions that are new or broader than those declared by the overrided method.
+
+
 #### What does "final" mean in case of a variable, method or a class?
+
+In variable using final, you create a constant, for methods - prevent method overriding, while for classes prevent inheritance.
+
+
 #### What is the super keyword?
+.
+The super keyword in Java is a referene variable which is used to refer immediate parent class object. Whenever you create the instance of subclass, an instance of parent class 
+is created implicitly which is referred by super reference variable. We can use super keyword to access the data member or field of parent class. It is used if parent class and child have same fields.
+ The super keyword can also be used to invoke parent clas method. It should be used if subclass contains the same method as parent class. In other words, it is used if method is overriden. **Usage:
+
+ * super can be used to refer immediate parent class instance variable.
+ * super can be used to invoke immediate parent class method.
+ * super() can be used to invoke immediate parent class constructor: default constructor is provided by compiler automatically if there is no constructor. But, it also add super() as the first
+ statement.
+
 #### What are “generics”? When to use? Show examples.
+
+Using java generics, programmers are able to write more general methods. It means that it is not necessary to specify the input type of a method, therefore it can handle Strings, Integers, Doubles and so on.
+ It is very useful when for example we want to implement a sorting method. If we use generics, our method will handle more types of Lists. Generics also provide compile-time safety that allows programmers to
+ catch invalid types at compile time.
+
+
 #### What is the benefit of having “generic” containers?
+
+
 #### Given two Java programs on two different machines. How can you communicate between the two? What are the possible ways?
+
 #### What is an annotation? What can be annotated and how? Show examples.
+
+Annotations help to associate metadata (information) to the program elements i.e instance, variables, constructors, methods, classes, etc.
+
 
 ### C&#35;
 
